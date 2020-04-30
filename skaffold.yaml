@@ -1,0 +1,23 @@
+apiVersion: skaffold/v1alpha5
+kind: Config
+build:
+  artifacts:
+  - image: jamesmedice/corporate
+    context: istio-corporate
+  - image: jamesmedice/enterprise
+    context: istio-enterprise
+  tagPolicy:
+    gitCommit: {}
+deploy:
+  kubectl:
+    manifests:
+    - ./istio-deployments/deployments.yaml
+    - ./istio-deployments/services.yaml
+    - ./istio-deployments/gateway.yaml
+    - ./istio-deployments/virtualservice.yaml
+    - ./istio-deployments/destinationRule.yaml
+profiles:
+- name: james, dev, kubernetes, istio, virtualservice
+  build:
+    local:
+      push: false

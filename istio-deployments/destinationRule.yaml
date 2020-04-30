@@ -1,0 +1,33 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: enterprise
+spec:
+  host: enterprise
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+  subsets:
+  - name: enterprise-s1
+    labels:
+      version: v1
+  - name: enterprise-s2
+    labels:
+      version: v2
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: corporate
+spec:
+  host: corporate
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+  subsets:
+  - name: corporate-s1
+    labels:
+      version: v1
+  - name: corporate-s2
+    labels:
+      version: v2
