@@ -27,7 +27,3 @@
  kubectl delete -n default deployment  enterprise-v2
  kubectl delete -n default deployment  corporate-v1
  kubectl delete -n default deployment  corporate-v2
-
- 
- 
- while true; do curl -i http://$EXTERNAL_IP/corporate/;  sleep .8; done
