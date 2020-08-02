@@ -11,11 +11,11 @@ build:
 deploy:
   kubectl:
     manifests:
-    - ./istio-deployments/deployments.yaml
-    - ./istio-deployments/services.yaml
-    - ./istio-deployments/gateway.yaml
-    - ./istio-deployments/virtualservice.yaml
-    - ./istio-deployments/destinationRule.yaml
+    - ./istio/deployments.yaml
+    - ./istio/services.yaml
+    - ./istio/gateway.yaml
+    - ./istio/virtualservice.yaml
+    - ./istio/destinationRule.yaml
 profiles:
 - name: james, dev, kubernetes, istio, virtualservice
   build:
